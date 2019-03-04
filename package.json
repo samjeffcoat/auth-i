@@ -2,6 +2,8 @@
   "name": "auth-i",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "server": "nodemon"} , 
   "repository": "https://github.com/samjeffcoat/auth-i.git",
   "author": "samjeffcoat <samjeffcoat@gmail.com>",
   "license": "MIT",
