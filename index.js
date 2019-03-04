@@ -11,5 +11,12 @@ const helmet= require('helmet');
  server.use(express.json());
  server.use(cors());
 
+server.get('/', (req, res) => {
+    res.send("Its working!!!!!!");
+})
+
+
+
+
 const port = process.env.PORT || 5000;
 server.listen(port, () => console.log(`\n** Running on port ${port} **\n`));
