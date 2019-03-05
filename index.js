@@ -10,7 +10,7 @@ const helmet= require('helmet');
  const Users = require('./users/users-module');
  const server= express();
  const sessionConfig = {
-     name: 'Baby Bear',
+     name: 'babybear',
      secret: 'Keep it secret, keep it safe!',
      cookie: {
          maxAge:1000 *60*15*24, //// This is set to 24 hours 
@@ -101,6 +101,20 @@ server.post('/api/users', restricted, (req, res) => {
         res.json(users)
     })
     .catch(err => res.send(err));
+})
+server.get('/api/logout', (req, res) => {
+    if(req.session) {
+        req.session.destroy(err => {
+            if(err) {
+                res.send(
+                    'you can never leave'
+                );
+            } else {
+                res.send('bye, thanks for playing');            }
+        })
+    } else{
+        res.send();
+    }
 })
 
 const port = process.env.PORT || 5000;
